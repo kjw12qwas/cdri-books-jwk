@@ -8,8 +8,11 @@ import { FiSearch } from 'react-icons/fi';
 import useBookSearch from '../../hooks/useBookSearch';
 
 const SearchPage = () => {
-  const [query, setQuery] = useState('');
-  const [searchQuery, setSearchQuery] = useState('')
+  /**
+   * 분리하지 않는다면 사용자가 입력시 API 과다 호출
+   */
+  const [query, setQuery] = useState(''); // 입력창의 현재 값
+  const [searchQuery, setSearchQuery] = useState('') // 실제 검색에 사용되는 값
   const [page, setPage] = useState(1);
 
   const { data, isLoading } = useBookSearch({
@@ -18,6 +21,7 @@ const SearchPage = () => {
     size: 10,
   })
 
+  // data가 없을 때 기본값
   const totalCount = data?.meta.total_count ?? 0;
   const books = data?.documents ?? [];
 

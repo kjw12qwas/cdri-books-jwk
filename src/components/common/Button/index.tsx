@@ -30,6 +30,7 @@ const variantStyles = {
     `
 }
 
+// rightIcon은 children 옆에서 별도 렌더링하므로 제외
 const StyledButton = styled.button<Omit<ButtonProps, 'rightIcon'>>`
     display: flex;
     align-items: center;
