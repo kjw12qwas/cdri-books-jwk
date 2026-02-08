@@ -62,7 +62,12 @@ export default function SearchPage() {
                         도서 검색
                     </Heading>
 
-                    <Flex gap="16px" maxW="680px" align="center">
+                    <Flex
+                        gap="16px"
+                        maxW="680px"
+                        align="center"
+                        css={history.length > 0 ? { "&:has(:focus-within)": { alignItems: "flex-start" } } : undefined}
+                    >
                         <CustomInput
                             icon={<IoSearch size='20px' />}
                             value={searchQuery}
